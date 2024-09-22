@@ -1,0 +1,9 @@
+.item{
+    border-right: 0.01em solid rgba(255, 255, 255, 0.03);
+    border-bottom: 0.01em solid rgba(255, 255, 255, 0.03);
+}
+
+.item:hover{
+    background-color: rgba(114, 114, 114, 0.526);
+    transition: 0.5s ease-in-out;
+}
