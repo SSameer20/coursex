@@ -20,7 +20,7 @@ export default function Course() {
         return navigate(Routes.AUTH)
       }
 
-      axios.get("http://localhost:8080/api/v1/user/course/mycourse", {
+      axios.get("https://coursex-api.vercel.app/api/v1/user/course/mycourse", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import env from "react-dotenv";
 
 import axios from 'axios';
 import swal from 'sweetalert';
@@ -51,8 +52,8 @@ export default function Authentication() {
         email: formData.email,
         password: formData.password
       }
-
-      axios.post("http://localhost:8080/api/v1/user/login", { userDetails })
+      // let url : string = (env.ENVIRONMENT === "DEVELOPMENT") ? "https://coursex-api.vercel.app/api/v1/user/login" : "http://localhost:8080/api/v1/user/login" ;
+      axios.post("https://coursex-api.vercel.app/api/v1/user/login", { userDetails })
         .then((response) => {
           console.log(response.data)
           localStorage.setItem('token', response.data.token);
@@ -88,7 +89,7 @@ export default function Authentication() {
         password: formData.password,
       }
 
-      axios.post("http://localhost:8080/api/v1/user/register", { userDetails })
+      axios.post("https://coursex-api.vercel.app/api/v1/user/register", { userDetails })
         .then(response => {
           swal("Successfully Registered", response.data.message, "success");
           reset();

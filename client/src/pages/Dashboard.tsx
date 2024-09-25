@@ -21,14 +21,14 @@ export default function Dashboard() {
         return navigate(Routes.AUTH)
       }
 
-      axios.get("http://localhost:8080/api/v1/user/course/view", {
+      axios.get("https://coursex-api.vercel.app/api/v1/user/course/view", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
         .then((response) => {
           setCourse(response.data.data)
-          // console.log(course)
+          console.log(course)
         })
         .catch((err) => {
           // console.log(err)
@@ -49,7 +49,7 @@ export default function Dashboard() {
         return navigate(Routes.AUTH)
       }
 
-      axios.post("http://localhost:8080/api/v1/user/course/buy", {
+      axios.post("https://coursex-api.vercel.app/api/v1/user/course/buy", {
         courseId : item._id
       },
       {

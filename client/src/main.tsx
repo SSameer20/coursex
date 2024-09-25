@@ -4,6 +4,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import { Switch } from "@nextui-org/react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css'
+// import 'dotenv/config'
 
 import { Theme, Routes as RoutePath } from './layout/types.ts';
 
