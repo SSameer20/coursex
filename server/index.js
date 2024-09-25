@@ -13,11 +13,11 @@ const app = express();
 
 // Middlewares
 app.use(cors(
-    // {
-    //     origin : ["http://localhost:8080"],
-    //     methods : ["POST", "GET"],
-    //     credentials : true
-    // }
+    {
+        origin : ["http://localhost:3000/"],
+        methods : ["POST", "GET"],
+        credentials : true
+    }
 ));
 app.use(bodyParser.json());
 
