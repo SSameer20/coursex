@@ -59,9 +59,9 @@ export default function Authentication() {
           swal("Logged in", "user logged in","success")
           return navigate(Routes.APP)
         })
-        .catch((error) => {
-          // swal("Error", error.response, "warning")
-          swal("error","wrong credentials", "error")
+        .catch(error =>{
+          swal("Error", error.response.data, "warning")
+          // swal("error","wrong credentials", "error")
         })
     } catch (error) {
       swal("Loggin Error", "Error While Logging in", "error")
