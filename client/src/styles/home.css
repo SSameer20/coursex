@@ -1,0 +1,37 @@
+
+.title {
+    position: absolute;
+    font-size: 40vh;
+    top: -30vh;
+    animation: animateText 1s 1s 1 forwards;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+.description{
+    left: -25%;
+    top: 60%;
+    animation: animateDescription 1s 1.5s 1 forwards;
+}
+
+@keyframes animateDescription {
+    from {
+        position: absolute;
+        left: -25%;   
+    }
+    to {
+        left: 5%;
+    }
+}
+
+@keyframes animateText {
+    from {
+        position: absolute;
+        font-size: 40vh;
+        top: -30vh;
+    }
+    to {
+        position: relative;
+        font-size: 20vh;
+        top: 10vh;
+    }
+}

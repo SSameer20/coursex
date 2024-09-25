@@ -12,7 +12,13 @@ const app = express();
 
 
 // Middlewares
-app.use(cors());
+app.use(cors(
+    {
+        origin : ["http://localhost:8080"],
+        methods : ["POST", "GET"],
+        credentials : true
+    }
+));
 app.use(bodyParser.json());
 
 // Routes
