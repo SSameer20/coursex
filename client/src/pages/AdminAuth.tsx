@@ -1,20 +1,18 @@
 
 import { useState } from 'react';
-import axios from 'axios'; 
-import swal from 'sweetalert'; 
+// import axios from 'axios'; 
+// import swal from 'sweetalert'; 
 import Wallpaper from '../layout/Wallpaper';
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
 import { Input, Button } from '@nextui-org/react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 import {Routes} from '../layout/types'
 
 
 export default function AdminAuth() {
     const [form, setForm] = useState<Boolean>(false)
-    const navigate = useNavigate();
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
-
+   
 
     const handleForm = () : void => {
         if(form === true) setForm(false)
@@ -57,12 +55,12 @@ export default function AdminAuth() {
             <Input
               type="email"
               label="Email"
-              {...register('email', { required: 'Email is required' })}
+            //   {...register('email', { required: 'Email is required' })}
             />
             <Input
               type="password"
               label="Password"
-              {...register('password', { required: 'Password is required' })}
+            //   {...register('password', { required: 'Password is required' })}
               
             />
             <Button type="submit" color="primary">
@@ -74,28 +72,28 @@ export default function AdminAuth() {
             <Input
               type="text"
               label="First Name"
-              {...register('firstname', { required: 'First Name required' })}
+            //   {...register('firstname', { required: 'First Name required' })}
             />
              <Input
               type="text"
               label="Second Name"
-              {...register('secondname', { required: 'Second Name required' })}
+            //   {...register('secondname', { required: 'Second Name required' })}
             />
             <Input
               type="email"
               label="Email"
-              {...register('email', { required: 'Email is required' })}
+            //   {...register('email', { required: 'Email is required' })}
             />
             <Input
               type="password"
               label="Password"
-              {...register('password', { required: 'Password is required' })}
+            //   {...register('password', { required: 'Password is required' })}
               
             />
             <Input
               type="password"
               label="Confirm Password"
-              {...register('confirmPassword', { required: 'Please confirm your password' })}
+            //   {...register('confirmPassword', { required: 'Please confirm your password' })}
             />
             <Button type="submit" color="primary">
               Register
