@@ -1,17 +1,18 @@
-import { useEffect } from "react"
+import { Input } from "@nextui-org/react";
+import { useState } from "react";
+
+// import
 
 export default function Profile() {
-  useEffect(()=>{
-    try {
-      // axios.get("")
-    } catch (error) {
-      
-    }
-
-  }, [])
+  const [name, setName] = useState<string>("Sameer");
   return (
-    <div className="w-[100%] h-[100%] flex flex-col gap-10">
-      <span className="text-3xl underline">Profile</span>
+    <div>
+      <Input
+        type="email"
+        label="Email"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
     </div>
-  )
+  );
 }

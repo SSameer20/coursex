@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import axios from 'axios'
 import swal from 'sweetalert'
 
-import { Routes } from "../layout/types"
+import { Routes,  DEVELOPMENT_API as API } from '../layout/types'
 import { validateJWT } from "../layout/Validate.JWT"
 import { Button } from "@nextui-org/react"
 
@@ -20,7 +20,7 @@ export default function Course() {
         return navigate(Routes.AUTH)
       }
 
-      axios.get("https://coursex-api.vercel.app/api/v1/user/course/mycourse", {
+      axios.get(API.USER_MY_COURSE, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
