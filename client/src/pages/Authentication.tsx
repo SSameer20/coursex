@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import env from "react-dotenv";
-
 import axios from 'axios';
 import swal from 'sweetalert';
 import Wallpaper from '../layout/Wallpaper';
@@ -8,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { Input, Button } from '@nextui-org/react';
 import { useNavigate } from 'react-router-dom';
 
-import { Routes, User } from '../layout/types'
+import { Routes, User, DEVELOPMENT_API as API } from '../layout/types'
 import {validateJWT} from "../layout/Validate.JWT"
 
 
@@ -28,7 +26,7 @@ export default function Authentication() {
     }
     else{
       localStorage.removeItem('token')
-      swal("Session Expired", "Please Login Again", "warning")
+      // swal("Session Expired", "Please Login Again", "warning")
     }
   },[])
 
@@ -52,8 +50,7 @@ export default function Authentication() {
         email: formData.email,
         password: formData.password
       }
-      // let url : string = (env.ENVIRONMENT === "DEVELOPMENT") ? "https://coursex-api.vercel.app/api/v1/user/login" : "http://localhost:8080/api/v1/user/login" ;
-      axios.post("https://coursex-api.vercel.app/api/v1/user/login", { userDetails })
+      axios.post(API.USER_LOGIN, { userDetails })
         .then((response) => {
           console.log(response.data)
           localStorage.setItem('token', response.data.token);
@@ -62,7 +59,6 @@ export default function Authentication() {
         })
         .catch(error =>{
           swal("Error", error.response.data, "warning")
-          // swal("error","wrong credentials", "error")
         })
     } catch (error) {
       swal("Loggin Error", "Error While Logging in", "error")
@@ -89,7 +85,7 @@ export default function Authentication() {
         password: formData.password,
       }
 
-      axios.post("https://coursex-api.vercel.app/api/v1/user/register", { userDetails })
+      axios.post(API.USER_REGISTER, { userDetails })
         .then(response => {
           swal("Successfully Registered", response.data.message, "success");
           reset();
