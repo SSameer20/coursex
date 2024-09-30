@@ -27,11 +27,11 @@ const main = async () => {
   await mongoose
     .connect(process.env.MONGO_URI)
     .then(() => {
-      console.log("Connected DB");
       const PORT = process.env.PORT || 8080;
       app.listen(PORT, () => {
         console.log(`Server is runing http://localhost:${PORT}`);
       });
+      console.log("Connected DB");
     })
     .catch((err) => console.log(err));
 };

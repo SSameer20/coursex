@@ -1,37 +1,40 @@
+import { useState } from "react";
+// import Wallpaper from "../layout/Wallpaper";
+import { Input, Button } from "@nextui-org/react";
+import "../styles/auth.css";
 
-import { useState } from 'react';
-// import axios from 'axios'; 
-// import swal from 'sweetalert'; 
-import Wallpaper from '../layout/Wallpaper';
-// import { useForm } from 'react-hook-form';
-import { Input, Button } from '@nextui-org/react';
-// import { useNavigate } from 'react-router-dom';
-
-import {Routes} from '../layout/types'
-
+// import API from "../apiConfig";
+import { Routes } from "../layout/types";
 
 export default function AdminAuth() {
-    const [form, setForm] = useState<Boolean>(false)
-   
+  const [form, setForm] = useState<Boolean>(false);
 
-    const handleForm = () : void => {
-        if(form === true) setForm(false)
-        else setForm(true)
-    }
-
+  const handleForm = (): void => {
+    if (form === true) setForm(false);
+    else setForm(true);
+  };
 
   return (
     <div className="flex w-full h-screen justify-center items-center authentication">
-      <Wallpaper />
-      <div className="flex w-1/4 flex-wrap flex-col md:flex-nowrap gap-4 border-1 p-5 rounded-xl justify-center items-center bg-black">
+      {/* <Wallpaper /> */}
+      <div className="absolute top-[15vh] left-[35vw] card1 z-1"></div>
+      <div className="absolute top-[15vh] left-[35vw] card2 z-1"></div>
+
+      <div className="flex w-1/4 flex-wrap flex-col md:flex-nowrap gap-4 border-1 p-5 rounded-xl justify-center items-center backdrop-blur-sm">
         <div className="flex w-2/3 flex-wrap flex-row gap-4 z-10">
           <p
             className="test-2xl cursor-pointer font-normal hover:border-b-yellow-50 ease-in duration-40"
             id="login"
             style={
               form
-                ? { borderBottomColor: 'white', paddingBottom: '5px', fontSize: 'large', fontWeight: '800', color: 'purple' }
-                : { border: 'transparent' }
+                ? {
+                    borderBottomColor: "white",
+                    paddingBottom: "5px",
+                    fontSize: "large",
+                    fontWeight: "800",
+                    color: "purple",
+                  }
+                : { border: "transparent" }
             }
             onClick={handleForm}
           >
@@ -42,8 +45,14 @@ export default function AdminAuth() {
             id="register"
             style={
               form
-                ? { border: 'transparent' }
-                : { borderBottomColor: 'white', paddingBottom: '5px', fontSize: 'large', fontWeight: '800', color: 'purple' }
+                ? { border: "transparent" }
+                : {
+                    borderBottomColor: "white",
+                    paddingBottom: "5px",
+                    fontSize: "large",
+                    fontWeight: "800",
+                    color: "purple",
+                  }
             }
             onClick={handleForm}
           >
@@ -55,13 +64,12 @@ export default function AdminAuth() {
             <Input
               type="email"
               label="Email"
-            //   {...register('email', { required: 'Email is required' })}
+              //   {...register('email', { required: 'Email is required' })}
             />
             <Input
               type="password"
               label="Password"
-            //   {...register('password', { required: 'Password is required' })}
-              
+              //   {...register('password', { required: 'Password is required' })}
             />
             <Button type="submit" color="primary">
               Login
@@ -72,28 +80,27 @@ export default function AdminAuth() {
             <Input
               type="text"
               label="First Name"
-            //   {...register('firstname', { required: 'First Name required' })}
+              //   {...register('firstname', { required: 'First Name required' })}
             />
-             <Input
+            <Input
               type="text"
               label="Second Name"
-            //   {...register('secondname', { required: 'Second Name required' })}
+              //   {...register('secondname', { required: 'Second Name required' })}
             />
             <Input
               type="email"
               label="Email"
-            //   {...register('email', { required: 'Email is required' })}
+              //   {...register('email', { required: 'Email is required' })}
             />
             <Input
               type="password"
               label="Password"
-            //   {...register('password', { required: 'Password is required' })}
-              
+              //   {...register('password', { required: 'Password is required' })}
             />
             <Input
               type="password"
               label="Confirm Password"
-            //   {...register('confirmPassword', { required: 'Please confirm your password' })}
+              //   {...register('confirmPassword', { required: 'Please confirm your password' })}
             />
             <Button type="submit" color="primary">
               Register
@@ -101,10 +108,10 @@ export default function AdminAuth() {
           </form>
         )}
 
-        <span className='z-10 center'>User Login <a href={Routes.AUTH}>Click here</a></span>
+        <span className="z-10 center">
+          User ? <a href={Routes.AUTH}>Click here</a>
+        </span>
       </div>
-
-
     </div>
-  )
+  );
 }

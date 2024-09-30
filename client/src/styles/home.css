@@ -1,37 +1,42 @@
-
 .title {
-    position: absolute;
-    font-size: 40vh;
-    top: -30vh;
-    animation: animateText 1s 1s 1 forwards;
-    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  position: absolute;
+  transform: translateY(-30vh) scale(1.5);
+  font-size: 10vw;
+  top: 0;
+  animation: animateText 1s 0.5s forwards;
 }
 
-.description{
-    left: -25%;
-    top: 60%;
-    animation: animateDescription 1s 1.5s 1 forwards;
+/* Optimized animation using transform for smoother movement and scaling */
+@keyframes animateText {
+  from {
+    transform: translateY(-30vh) scale(1.5); /* Starting point with initial scale */
+    opacity: 0; /* Optional: fade in */
+  }
+  to {
+    transform: translateY(10vh) scale(1); /* End point with normal scale */
+    opacity: 1; /* Optional: full visibility */
+  }
+}
+
+.description {
+  bottom: 30%;
+  opacity: 0;
+  animation: animateDescription 2s 0.8s 1 forwards;
+
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+.flare {
+  background-color: #7755c186;
+  box-shadow: 0 0 600px 100px #7755c1b0;
+  border-radius: 50%;
 }
 
 @keyframes animateDescription {
-    from {
-        position: absolute;
-        left: -25%;   
-    }
-    to {
-        left: 5%;
-    }
-}
-
-@keyframes animateText {
-    from {
-        position: absolute;
-        font-size: 40vh;
-        top: -30vh;
-    }
-    to {
-        position: relative;
-        font-size: 20vh;
-        top: 10vh;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

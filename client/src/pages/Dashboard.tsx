@@ -3,7 +3,8 @@ import axios from "axios";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 
-import { Course, Routes, DEVELOPMENT_API as API } from "../layout/types";
+import API from "../apiConfig";
+import { Course, Routes } from "../layout/types";
 import { validateJWT } from "../layout/Validate.JWT";
 import { Button } from "@nextui-org/react";
 
