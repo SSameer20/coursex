@@ -14,7 +14,7 @@ import Authentication from "./pages/Authentication.tsx";
 import AdminAuth from "./pages/AdminAuth.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import Course from "./pages/Course.tsx";
-import Profile from "./pages/Profile.tsx";
+// import Profile from "./pages/Profile.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -38,7 +38,7 @@ function Main() {
             <Route path={RoutePath.APP} element={<App />}>
               <Route path={RoutePath.DASHBOARD} element={<Dashboard />} />
               <Route path={RoutePath.COURSE} element={<Course />} />
-              <Route path={RoutePath.PROFILE} element={<Profile />} />
+              {/* <Route path={RoutePath.PROFILE} element={<Profile />} /> */}
             </Route>
           </Routes>
         </main>
