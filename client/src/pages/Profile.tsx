@@ -1,9 +1,9 @@
-import { Input } from "@nextui-org/react";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { Input } from "@nextui-org/react";
+// import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 // import axios from "axios";
 // import swal from "sweetalert";
-import { CircularProgress } from "@nextui-org/react";
+// import { CircularProgress } from "@nextui-org/react";
 
 // // import API from "../apiConfig";
 
@@ -12,9 +12,9 @@ import { CircularProgress } from "@nextui-org/react";
 // import API from "../apiConfig";
 
 export default function Profile() {
-  const navigate = useNavigate();
-  const [load, setLoad] = useState<boolean>(true);
-  const [loadValue, setLoadValue] = useState<number>(0);
+  // const navigate = useNavigate();
+  // const [load, setLoad] = useState<boolean>(true);
+  // const [loadValue, setLoadValue] = useState<number>(0);
   //   // const [user, setUser] = useState<User>({
   //   //   email: "",
   //   // });
@@ -59,21 +59,6 @@ export default function Profile() {
   return (
     <div className="w-[100%] h-[100%] flex flex-col gap-10">
       <span className="text-3xl underline">Profile</span>
-      {load ? (
-        <div className="w-[100%] h-[100%] flex justify-center items-center">
-          <CircularProgress
-            aria-label="Loading..."
-            size="lg"
-            value={loadValue}
-            color="warning"
-            showValueLabel={true}
-          />
-        </div>
-      ) : (
-        <div className="flex flex-col gap-5 ">
-          <h1>Sameer</h1>
-        </div>
-      )}
     </div>
   );
 }
