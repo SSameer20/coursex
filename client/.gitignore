@@ -15,6 +15,21 @@ dist-ssr
 *.env*
 
 # Editor directories and files
+# // {
+# //   "builds": [
+# //     {
+# //       "src": "package.json",
+# //       "use": "@vercel/static-build",
+# //       "config": { "distDir": "dist" }
+# //     }
+# //   ],
+# //   "routes": [
+# //     {
+# //       "src": "/(.*)",
+# //       "dest": "/index.html"
+# //     }
+# //   ]
+# // }
 .vscode*
 !.vscode/extensions.json
 .idea
