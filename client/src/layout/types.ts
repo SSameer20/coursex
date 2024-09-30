@@ -26,6 +26,7 @@ export enum PRODUCTION_API {
   USER_COURSE_ALL = "https://coursex-api.vercel.app/api/v1/user/course/view",
   USER_PURCHASE_COURSE = "https://coursex-api.vercel.app/api/v1/user/course/buy",
   USER_MY_COURSE = "https://coursex-api.vercel.app/api/v1/user/course/mycourse",
+  USER_DETAILS = "https://coursex-api.vercel.app/api/v1/user/details",
 }
 
 export enum DEVELOPMENT_API {
