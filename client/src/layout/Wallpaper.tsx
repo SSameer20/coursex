@@ -1,20 +1,25 @@
-import "../styles/wallpaper.css"
+import { useEffect, useState } from "react";
+// import { motion } from "framer-motion";
+import "../styles/wallpaper.css";
+
+interface ScreenSize {
+  width: number;
+  height: number;
+}
 
 export default function Wallpaper() {
-
-    const handleMouseIn = (e : any) => {
-      e.target.style.transitionDuration = '0.1s';
-    }
-    const handleMouseOut = (e : any) => {
-      e.target.style.transitionDuration = '3s';
-    }
-
-
-    return (
-      <div className='absolute top-0 flex flex-wrap wallpaper absolute h-screen w-full'>
-          {Array.from({ length: 400 }).map((_, index) => (
-            <div key={index} className="item w-[5vw] h-[5vh]" onMouseEnter={handleMouseIn} onMouseLeave={handleMouseOut}></div>
-          ))}
-      </div>
-    )
-  }
+  return (
+    <div className="absolute top-0 flex flex-wrap wallpaper h-screen w-full overflow-hidden">
+      <div
+        className="w-full h-screen"
+        style={{
+          backgroundImage: `
+          linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px)
+        `,
+          backgroundSize: "50px 50px",
+        }}
+      ></div>
+    </div>
+  );
+}

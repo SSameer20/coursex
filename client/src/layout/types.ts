@@ -12,12 +12,16 @@ export type User = {
 export enum Routes {
   HOME = "/",
   AUTH = "/auth",
-  ADMIN_AUTH = "/admin/auth",
   APP = "/app",
   DASHBOARD = "",
   COURSE = "course",
   PROFILE = "profile",
   ERROR = "/error",
+  ADMIN = "/admin",
+  ADMIN_AUTH = "/admin/auth",
+  ADMIN_DASHBOARD = "",
+  ADMIN_COURSE = "course",
+  ADMIN_PROFILE = "profile",
 }
 
 export enum PRODUCTION_API {
@@ -36,6 +40,11 @@ export enum DEVELOPMENT_API {
   USER_PURCHASE_COURSE = "http://localhost:8080/api/v1/user/course/buy",
   USER_MY_COURSE = "http://localhost:8080/api/v1/user/course/mycourse",
   USER_DETAILS = "http://localhost:8080/api/v1/user/details",
+  ADMIN_LOGIN = "http://localhost:8080/api/v1/admin/login",
+  ADMIN_REGISTER = "http://localhost:8080/api/v1/admin/register",
+  ADMIN_COURSE_CREATE = "http://localhost:8080/api/v1/admin/course/create",
+  ADMIN_COURSE_VIEW = "http://localhost:8080/api/v1/admin/course/view",
+  ADMIN_DETAILS = "http://localhost:8080/api/v1/admin/",
 }
 
 export type Course = {

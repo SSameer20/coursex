@@ -2,15 +2,15 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 // import Wallpaper from "../layout/Wallpaper";
-import "../styles/auth.css";
+import "../../styles/auth.css";
 import { useForm } from "react-hook-form";
 import { Input, Button } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 
 // import { motion } from "framer-motion";
-import API from "../apiConfig";
-import { Routes, User } from "../layout/types";
-import { validateJWT } from "../layout/Validate.JWT";
+import API from "../../apiConfig";
+import { Routes, User } from "../../layout/types";
+import { validateJWT } from "../../layout/Validate.JWT";
 
 export default function Authentication() {
   const [form, setForm] = useState<boolean>(true);

@@ -1,16 +1,13 @@
 import { Outlet } from "react-router-dom";
-// import Wallpaper from "./layout/Wallpaper";
-import UserSidebar from "./layout/UserSidebar";
-import Navigation from "./layout/Navigation";
+import UserSidebar from "../../layout/UserSidebar";
 
-export default function App() {
+export default function Admin() {
   return (
     <div className="flex flex-row w-full h-screen overflow-hidden">
-      <Navigation />
       <div className="w-[10vh] h-screen sidebar">
         <UserSidebar />
       </div>
-      <div className="flex w-[80vw] h-[86vh] ml-[15vw] mt-[15vh] z-10">
+      <div className="flex w-[80vw] h-[80vh] ml-[18vw] mt-[10vh] z-10">
         <Outlet></Outlet>
       </div>
     </div>

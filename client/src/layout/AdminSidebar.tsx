@@ -2,31 +2,28 @@
 import { useNavigate } from "react-router-dom";
 import { Routes } from "./types";
 
-export default function UserSidebar() {
+export default function AdminSidebar() {
   const navigate = useNavigate();
   return (
     <div
-      className="w-[15vw] h-[90vh] mt-[10vh] flex flex-col gap-10 justify-start items-start pl-5 pt-[15vh] z-10"
-      style={{
-        backgroundColor: "transparent",
-        borderRight: "solid 0.1px rgba(255,255,255, 0.3)",
-      }}
+      className="w-[15vw] h-screen flex flex-col gap-10 justify-start items-start pl-5 pt-[15vh] z-10"
+      style={{ backgroundColor: "#0B192C" }}
     >
       <span
         className="text-[25px] z-10 cursor-pointer"
-        onClick={() => navigate(Routes.DASHBOARD)}
+        onClick={() => navigate(Routes.ADMIN_DASHBOARD)}
       >
         Dashboard
       </span>
       <span
         className="text-[25px] z-10 cursor-pointer"
-        onClick={() => navigate(Routes.COURSE)}
+        onClick={() => navigate(Routes.ADMIN_COURSE)}
       >
         My Courses
       </span>
       <span
         className="text-[25px] z-10 cursor-pointer"
-        onClick={() => navigate(Routes.PROFILE)}
+        onClick={() => navigate(Routes.ADMIN_PROFILE)}
       >
         Profile
       </span>

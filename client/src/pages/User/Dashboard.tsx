@@ -3,10 +3,66 @@ import axios from "axios";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 
-import API from "../apiConfig";
-import { Course, Routes } from "../layout/types";
-import { validateJWT } from "../layout/Validate.JWT";
-import { Button } from "@nextui-org/react";
+import API from "../../apiConfig";
+import { Course, Routes } from "../../layout/types";
+import { validateJWT } from "../../layout/Validate.JWT";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  Button,
+} from "@nextui-org/react";
+
+const PopCard = ({ item }: { item: Course }) => {
+  const navigate = useNavigate();
+  const handleCoursePurchase = async (item: Course) => {
+    try {
+      let token = localStorage.getItem("token");
+      const isValid = validateJWT(token);
+      if (!isValid) {
+        localStorage.removeItem("token");
+        return navigate(Routes.AUTH);
+      }
+
+      axios
+        .post(
+          API.USER_PURCHASE_COURSE,
+          {
+            courseId: item.id,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((response) => {
+          swal("Purchase Successful", response.data.message, "success");
+        })
+        .catch((err) => {
+          swal("Already Purchased", err.response.data.message, "warning");
+        });
+    } catch (error) {
+      swal("Error", "error");
+    }
+  };
+  return (
+    <Popover placement="top" showArrow offset={10}>
+      <PopoverTrigger>
+        <Button color="primary">Buy</Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-[240px] p-5">
+        <img src={item.imageUrl} alt={item.title} />
+        <div className="flex flex-row gap-10 mt-5">
+          <span className="font-bold m-2 text-xl">{item.price}</span>
+          <Button color="primary" onClick={() => handleCoursePurchase(item)}>
+            BUY
+          </Button>
+        </div>
+      </PopoverContent>
+    </Popover>
+  );
+};
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -44,38 +100,6 @@ export default function Dashboard() {
     fetchCourses();
   }, [navigate, validateJWT, Routes.AUTH, API.USER_COURSE_ALL]);
 
-  const handleCoursePurchase = async (item: any) => {
-    try {
-      let token = localStorage.getItem("token");
-      const isValid = validateJWT(token);
-      if (!isValid) {
-        localStorage.removeItem("token");
-        return navigate(Routes.AUTH);
-      }
-
-      axios
-        .post(
-          API.USER_PURCHASE_COURSE,
-          {
-            courseId: item._id,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-        .then((response) => {
-          swal("Purchase Successful", response.data.message, "success");
-        })
-        .catch((err) => {
-          swal("Already Purchased", err.response.data.message, "warning");
-        });
-    } catch (error) {
-      swal("Error", "error");
-    }
-  };
-
   return (
     <div className="w-[100%] h-[100%] flex flex-col gap-10">
       <span className="text-3xl underline">Dashboard</span>
@@ -90,13 +114,8 @@ export default function Dashboard() {
               <img src={item.imageUrl} alt={item.title} />
               <h1>{item.title}</h1>
               <div className="flex flex-row gap-10">
-                <h2>{item.price}</h2>
-                <Button
-                  color="primary"
-                  onClick={() => handleCoursePurchase(item)}
-                >
-                  Buy
-                </Button>
+                <h2>Rs: {item.price}</h2>
+                <PopCard item={item} />
               </div>
             </div>
           );

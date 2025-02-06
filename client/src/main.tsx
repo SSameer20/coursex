@@ -9,12 +9,13 @@ import "./index.css";
 import { Routes as RoutePath } from "./layout/types.ts";
 
 import App from "./App.tsx";
-import Home from "./pages/Home.tsx";
-import Authentication from "./pages/Authentication.tsx";
-import AdminAuth from "./pages/AdminAuth.tsx";
-import Dashboard from "./pages/Dashboard.tsx";
-import Course from "./pages/Course.tsx";
-// import Profile from "./pages/Profile.tsx";
+import Home from "./pages/User/Home.tsx";
+import Authentication from "./pages/User/Authentication.tsx";
+import AdminAuth from "./pages/Admin/AdminAuth.tsx";
+import Dashboard from "./pages/User/Dashboard.tsx";
+import MyCourses from "./pages/User/MyCourses.tsx";
+import Profile from "./pages/User/Profile.tsx";
+import Admin from "./pages/Admin/Admin.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -28,7 +29,7 @@ function Main() {
       <NextUIProvider>
         <main
           className={
-            " dark text-foreground bg-background h-screen w-full overflow-hidden"
+            " dark text-foreground bg-background font-mono h-screen w-full overflow-hidden"
           }
         >
           <Routes>
@@ -37,8 +38,13 @@ function Main() {
             <Route path={RoutePath.ADMIN_AUTH} element={<AdminAuth />} />
             <Route path={RoutePath.APP} element={<App />}>
               <Route path={RoutePath.DASHBOARD} element={<Dashboard />} />
-              <Route path={RoutePath.COURSE} element={<Course />} />
-              {/* <Route path={RoutePath.PROFILE} element={<Profile />} /> */}
+              <Route path={RoutePath.COURSE} element={<MyCourses />} />
+              <Route path={RoutePath.PROFILE} element={<Profile />} />
+            </Route>
+            <Route path={RoutePath.ADMIN} element={<Admin />}>
+              <Route path={RoutePath.ADMIN_DASHBOARD} element={<Dashboard />} />
+              <Route path={RoutePath.ADMIN_COURSE} element={<MyCourses />} />
+              <Route path={RoutePath.ADMIN_PROFILE} element={<Profile />} />
             </Route>
           </Routes>
         </main>
